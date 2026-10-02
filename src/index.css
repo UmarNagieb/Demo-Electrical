@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* VoltPro High-Voltage Palette */
+    --background: 222 45% 7%;
+    --foreground: 210 17% 98%;
+    --card: 220 26% 11%;
+    --card-foreground: 210 17% 98%;
+    --popover: 220 26% 11%;
+    --popover-foreground: 210 17% 98%;
+    --primary: 48 100% 50%;
+    --primary-foreground: 222 45% 7%;
+    --secondary: 220 26% 16%;
+    --secondary-foreground: 210 17% 98%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 222 45% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 17% 98%;
+    --border: 220 24% 20%;
+    --input: 220 24% 20%;
+    --ring: 48 100% 50%;
+    --radius: 0.75rem;
+    --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.25);
+  }
+
+  .glow-yellow-sm {
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 24px rgba(255, 215, 0, 0.35);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(220 24% 20% / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(220 24% 20% / 0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .conduit-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+  }
+
+  .clip-hex {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 24% 20%);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(48 100% 50% / 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
